@@ -1,0 +1,132 @@
+<div  >
+  <div class="masthead clearfix body-head" id="shouldStick" sticky use-placeholder>
+    <ul class="nav masthead-nav body-nav" scrollspy-menu='{offset:65, duration:200}' bs-nav>
+      <li ><a id="Site-Brand"><i class="fa fa-2x fa-puzzle hidden-xs"></i><br/> <span class="">Enactus Unical</span></a></li>
+      <li ><a href="#Projects"><i class="fa fa-2x fa-puzzle-piece"></i> <span class="hidden-xs">Projects</span></a></li>
+      <li ><a href="#gallery" ><i class="fa fa-2x fa-picture-o"></i> <span class="hidden-xs">Gallery</span></a></li>
+      <li ><a href="#team"><i class="fa fa-2x fa-users"></i> <span class="hidden-xs">Team</span></a></li>
+      <!--<li ng-class="{active: $path() == '/contact'}"><a ui-sref="slide5">Lets Go</a></li>-->
+      <!--<li ng-class="{active: $path() == '/contact'}"><a ui-sref="slide6">Cashless Campus</a></li>-->
+    </ul>
+  </div>
+
+  
+    <div id="Projects" class="" ng-controller="projects" ng-init="init()">
+      <h2 align="center" class="bold">Our Projects<small class="light">progress enabled by Enactus Unical</small></h2>
+      <br/>
+      <div class="first clearfix ">
+        <img src="{{singleDetail.img}}" class="col-sm-5"/>
+        <div class="col-sm-7 first-main" >
+          <h2 >{{singleDetail.title}} </h2>
+          <p>
+            {{singleDetail.about}}
+          </p>
+        </div>
+        <div style="clear:both;"></div>
+        <br/>
+        <br/>
+        </div>
+        <div class="other clearfix" >
+          
+          <div class="col-sm-4 col-md-3" ng-repeat="project in projects" ng-mouseenter="hover(project)" ng-mouseleave="hover(project)" >
+            <div>
+              <img src="{{project.img}}" class="img-responsive"/>
+              <a href="#" ng-click="single(project)">
+                <div ng-show="project.toggleHide">
+                  <i class="fa fa-2x fa-puzzle-piece"></i>
+                  <span class="hover-line"></span>
+                  <p>{{ project.title}}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <br/>
+    
+    <div class="body-line"></div>
+    
+    <br/>
+    
+    <div id="gallery" ng-controller="gallery">
+      <h2 align="center" class="bold">Gallery<small class="light">memmories we share</small></h2>
+      <br/>
+      <div class="other clearfix">
+        <div class="col-sm-4 col-md-3" ng-repeat="picture in pictures" ng-mouseenter="hover(picture)" ng-mouseleave="hover(picture)">
+          <div>
+            <img src="{{picture.img}}" class="img-responsive"/>
+            <a href="#" >
+              <div ng-show="picture.toggleHide" style="background-color:rgba(240, 65, 36,0.5);">
+                <i class="fa fa-2x fa-picture-o"></i>
+                <span class="hover-line"></span>
+                <p>Lorem ipsum dolor sit amet, consectetur</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center">
+      <button class="btn btn-lg btn-danger "><i class="fa fa-3x fa-picture"></i> Our Flickr Page</button>
+      </div>
+      <br/>
+    </div>
+    
+    
+    
+    <div class="body-line"></div>
+    <br/>
+    
+    <div id="team" ng-controller="team">
+      <h2 align="center" class="bold">Our Team<small class="light">we enable progress</small></h2>
+      <br/>
+      <div class="other clearfix "  ng-class="{'col-md-9': HideDiv}">
+        <div class="col-sm-3 col-md-2 " ng-repeat="member in team" ng-mouseenter="hover(member)" ng-mouseleave="hover(member)" align="center">
+          <div class="round">
+            <img src="{{member.img}}" class="img-responsive"/>
+            <a href="#team-side"  ng-click="single(member)">
+              <div ng-show="member.toggleHide"  style="background-color:rgba(91, 192, 222,0.5);">
+                <i class="fa fa-2x fa-user"></i>
+                <span class="hover-line"></span>
+                <p>{{member.name}}</p>
+              </div>
+            </a>
+          </div>
+          <h4><a href="#team-side" ng-click="single(member)">{{member.name}}</a></h4>
+          <h5>{{member.position}}</h5>
+        </div>
+        
+      </div>
+      <div class="team-side col-md-3" id="team-side" style="border-left:#111 solid 3px; padding-left:10px;padding-right:5px; text-align:center; display:block;"  ng-show="singleHide" >
+        <div style="text-align:center; display:block;"><img src="{{singleDetail.img}}" class="img-responsive img-thumbnail" style="height:200px;margin:0;padding:0; width:100%" /></div>
+        <div class="body-line"></div>
+        <h4>{{singleDetail.name}}</h4>
+        <h5>{{singleDetail.position}}</h5>
+        <h6>{{singleDetail.about}}</h6>
+        <button class="btn btn-default fa fa-2x fa-twitter"></button>  <button class=" btn btn-default fa fa-2x fa-facebook"></button>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    
+    
+    <div class="body-line"></div>
+    <div class="sponsors" ng-controller="sponsors">
+    <br/>
+      <h2 align="center" class="bold">Our Sponsors<small class="light">without them, a lot wouldn't be possible</small></h2>
+      <br/>
+      <div class="other clearfix">
+      
+        <div class="col-sm-3 col-lg-2"  ng-repeat="sponsor in sponsors">
+          <a href="#"><img src="img/join-lg.jpg" class="img-responsive img-rounded curved" style="height:150px;display:block; float:left; margin-right:7px;margin-bottom:7px;"/></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+<br/>
+<br/>
+
+<div class="body-line"></div>
+<h3 align="center">Website Design By Anhony Alaribe ( anthonyalaribe@gmail.com ) </h3>
