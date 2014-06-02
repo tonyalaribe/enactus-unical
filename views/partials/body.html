@@ -1,21 +1,24 @@
-<div  >
+<div  ng-controller="bodyCtrl">
   <div class="masthead clearfix body-head" id="shouldStick" sticky use-placeholder>
     <ul class="nav masthead-nav body-nav" scrollspy-menu='{offset:65, duration:200}' bs-nav>
       <li ><a id="Site-Brand"><i class="fa fa-2x fa-puzzle hidden-xs"></i><br/> <span class="">Enactus Unical</span></a></li>
-      <li ><a href="#Projects"><i class="fa fa-2x fa-puzzle-piece"></i> <span class="hidden-xs">Projects</span></a></li>
-      <li ><a href="#gallery" ><i class="fa fa-2x fa-picture-o"></i> <span class="hidden-xs">Gallery</span></a></li>
-      <li ><a href="#team"><i class="fa fa-2x fa-users"></i> <span class="hidden-xs">Team</span></a></li>
+      <li ><a href="#Projects" scroll-to="Projects"><i class="fa fa-2x fa-puzzle-piece"></i> <span class="hidden-xs">Projects</span></a></li>
+      <li ><a href="#blog" scroll-to="blog"><i class="fa fa-2x fa-th-list"></i> <span class="hidden-xs">Blog</span></a></li>
+      <li ><a href="#gallery" scroll-to="gallery" ><i class="fa fa-2x fa-picture-o"></i> <span class="hidden-xs">Gallery</span></a></li>
+      <li ><a href="#team" scroll-to="team"><i class="fa fa-2x fa-users"></i> <span class="hidden-xs">Team</span></a></li>
+      <li ><a href="#sponsors" nscroll-to="sponsors"><i class="fa fa-2x fa-usd"></i> <span class="hidden-xs">Sponsors</span></a></li>
+      <li ><a href="#join" scroll-to="join"><i class="fa fa-2x fa-plus"></i> <span class="hidden-xs">Join Us</span></a></li>
       <!--<li ng-class="{active: $path() == '/contact'}"><a ui-sref="slide5">Lets Go</a></li>-->
       <!--<li ng-class="{active: $path() == '/contact'}"><a ui-sref="slide6">Cashless Campus</a></li>-->
     </ul>
   </div>
 
-  
+
     <div id="Projects" class="" ng-controller="projects" ng-init="init()">
       <h2 align="center" class="bold">Our Projects<small class="light">progress enabled by Enactus Unical</small></h2>
       <br/>
       <div class="first clearfix ">
-        <img src="{{singleDetail.img}}" class="col-sm-5"/>
+        <img src="{{base+singleDetail.img}}" class="col-sm-5"/>
         <div class="col-sm-7 first-main" >
           <h2 >{{singleDetail.title}} </h2>
           <p>
@@ -30,7 +33,7 @@
           
           <div class="col-sm-4 col-md-3" ng-repeat="project in projects" ng-mouseenter="hover(project)" ng-mouseleave="hover(project)" >
             <div>
-              <img src="{{project.img}}" class="img-responsive"/>
+              <img src="{{ base+project.img}}" class="img-responsive"/>
               <a href="#" ng-click="single(project)">
                 <div ng-show="project.toggleHide">
                   <i class="fa fa-2x fa-puzzle-piece"></i>
@@ -47,27 +50,51 @@
     
     <div class="body-line"></div>
     
+      <div id="blog" class="" ng-controller="blog" ng-init="init()">
+      <h2 align="center" class="bold">Latest Posts<small class="light">freshly baked from our blog</small></h2>
+      <br/>
+      <div>
+        <div class="panel panel-default col-sm-4 col-md-3" ng-repeat="post in posts">
+          <div class="panel-heading">
+            <a href="{{post.post_url}}" target="_blank"><h3 class="panel-title">{{post.title}}</h3></a>
+          </div>
+          <div class="panel-body">
+            {{post.body | limitTo: 250}}
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div style="text-align:center"><br/>
+        <a class="btn btn-lg btn-info " style="background-color:#35465c;" href="http://enactusunical.tumblr.com" target="_blank"><i class="fa  fa-tumblr-square"></i> Visit our blog</a>
+      </div>
+      </div>
+    
+    <br/>
+    
+    <div class="body-line"></div>
+    
     <br/>
     
     <div id="gallery" ng-controller="gallery">
-      <h2 align="center" class="bold">Gallery<small class="light">memmories we share</small></h2>
+      <h2 align="center" class="bold">Gallery<small class="light">memories we share</small></h2>
       <br/>
       <div class="other clearfix">
-        <div class="col-sm-4 col-md-3" ng-repeat="picture in pictures" ng-mouseenter="hover(picture)" ng-mouseleave="hover(picture)">
+        <div class="col-sm-3 col-md-2" ng-repeat="picture in tag.items" ng-mouseenter="hover(picture)" ng-mouseleave="hover(picture)">
           <div>
-            <img src="{{picture.img}}" class="img-responsive"/>
-            <a href="#" >
+            <img src="{{picture.images.low_resolution.url}}" class="img-responsive"/>
+            <a ng-href="{{picture.link}}" target="_blank">
               <div ng-show="picture.toggleHide" style="background-color:rgba(240, 65, 36,0.5);">
                 <i class="fa fa-2x fa-picture-o"></i>
                 <span class="hover-line"></span>
-                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                <p>{{picture.caption.text}}</p>
               </div>
             </a>
           </div>
         </div>
       </div>
-      <div style="text-align:center">
-      <button class="btn btn-lg btn-danger "><i class="fa fa-3x fa-picture"></i> Our Flickr Page</button>
+      <div style="text-align:center"><br/>
+      <a class="btn btn-lg btn-danger " href="http://hashgr.am/enactus" target="_blank"><i class="fa  fa-picture-o "></i> More on Hastagram</a> OR
+      <a class="btn btn-lg btn-info " href="http://instagram.com/enactus_unical" target="_blank" style="background-color:#517fa4;"><i class="fa  fa-instagram"></i> follow us on instagram</a>
       </div>
       <br/>
     </div>
@@ -83,7 +110,7 @@
       <div class="other clearfix "  ng-class="{'col-md-9': HideDiv}">
         <div class="col-sm-3 col-md-2 " ng-repeat="member in team" ng-mouseenter="hover(member)" ng-mouseleave="hover(member)" align="center">
           <div class="round">
-            <img src="{{member.img}}" class="img-responsive"/>
+            <img src="{{base+member.img}}" class="img-responsive"/>
             <a href="#team-side"  ng-click="single(member)">
               <div ng-show="member.toggleHide"  style="background-color:rgba(91, 192, 222,0.5);">
                 <i class="fa fa-2x fa-user"></i>
@@ -110,23 +137,155 @@
     
     
     <div class="body-line"></div>
-    <div class="sponsors" ng-controller="sponsors">
-    <br/>
+    <div class="sponsors" id="sponsors" ng-controller="sponsors">
+      <br/>
       <h2 align="center" class="bold">Our Sponsors<small class="light">without them, a lot wouldn't be possible</small></h2>
       <br/>
       <div class="other clearfix">
       
         <div class="col-sm-3 col-lg-2"  ng-repeat="sponsor in sponsors">
-          <a href="#"><img src="img/join-lg.jpg" class="img-responsive img-rounded curved" style="height:150px;display:block; float:left; margin-right:7px;margin-bottom:7px;"/></a>
+          <a href="{{sponsor.link}}"><img src="{{base+sponsor.img}}" class="img-responsive img-rounded curved" style="height:150px;display:block; float:left; margin-right:7px;margin-bottom:7px;"/></a>
         </div>
         
       </div>
     </div>
+    
+    <div class="body-line"></div>
+    <div class="join" ng-controller="join" id='join'>
+      <br/>
+      <h2 align="center" class="bold">JOIN US<small class="light">whether as a student, a BAB member or a sponsor</small></h2>
+      <br/>
+      <div class=" clearfix">
+      
+      <div>
+        <ul class="nav nav-pills nav-stacked col-md-3" style="font-size:2rem;" bs-nav>
+            <li ng-class="{active: student}"><a  ng-click="studentdisp()" href="#" class="fa fa-book"> Students</a></li>
+            <li ng-class="{active: bab}"><a  ng-click="babdisp()" href="#" class="fa fa-suitcase"> BAB</a></li>
+            <li style="text-align:center">OR</li>
+            <li ng-class="{active: contact}"><a  ng-click="contactdisp()" href="#" class="fa fa-envelope-o"> DROP A MESSAGE</a></li>
+        </ul>
+        <div class="lower-join col-md-9" >
+          <div ng-show="student">
+            
+            <div>
+              <h2>Want to step outside of your text books to actually excecute projects in the real world? While even learning more and improving your skills?</h2>
+              <form class="" role="form" ng-controller="studentform" ng-submit="processForm()">
+                <div class="form-group" ng-class="{ 'has-error' : errorname }" >
+                  <label for="mName" class="control-label">Name</label>
+                    <input type="text" class="form-control" id="mName" placeholder="Your Name" ng-model="student.name">
+                    <span class="help-block" ng-show="errorname">{{ errorname }}</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : errorphone }">
+                  <label for="mphone" class=" control-label">Phone</label>
+                    <input type="tel" class="form-control" id="mphone" placeholder="Your Phone Number" ng-model="student.phone">
+                    <span class="help-block" ng-show="errorphone">{{ errorphone }}</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : erroremail }">
+                  <label for="mEmail" class="control-label">Email</label>
+                    <input type="email" class="form-control" id="mEmail" placeholder="Email" ng-model="student.email">
+                    <span class="help-block" ng-show="erroremail">{{ erroremail }}</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : errorabout }">
+                  <label for="mmessage" class="control-label">Why would we recruit you?</label>
+                    <textarea class="form-control" rows="3" id="mmessage" placeholder="Tell us who you are, and why we should let you join us" ng-model="student.about"></textarea>
+                    <span class="help-block" ng-show="errorabout">{{ errorabout }}</span>
+                </div>
+                <div class="form-group">
+                  <div class="">
+                    <button type="submit" class="btn btn-lg btn-default"><i class="fa fa-bolt"></i> Submit</button>
+                  </div>
+                </div>
+                <pre>{{student}}</pre>
+              </form>
+              
+            </div>
+            
+            
+          </div>
+          <div ng-show="bab">
+            
+            <div>
+              <h2>Want to be there when we need help and advice from the older population? Please fill in the form below and we would contact you. If need be, we would organize a meeting with you. <small>Thank you</small></h2>
+              <form class="" role="form">
+                <div class="form-group">
+                  <label for="mName" class=" control-label">Name</label>
+                    <input type="text" class="form-control" id="mName" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                  <label for="mphone" class="control-label">Phone</label>
+                    <input type="tel" class="form-control" id="mphone" placeholder="Your Phone Number">
+                </div>
+                <div class="form-group">
+                  <label for="mEmail" class="control-label">Email</label>
+                    <input type="email" class="form-control" id="mEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="mmessage" class="control-label">Message</label>
+                    <textarea class="form-control" rows="3" id="mmessage" placeholder="Your Message"></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="">
+                    <button type="submit" class="btn btn-lg btn-default">Submit</button>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+            
+            
+          </div>
+          
+          
+          <div ng-show="contact">
+            <div>
+              <h2>Like what we do? Want to partner with us on a project? Or just want to meet up with us?</h2>
+              <h2>Drop a Message</h2>
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="mName" class="col-sm-2 control-label">Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mName" placeholder="Your Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="mphone" class="col-sm-2 control-label">Phone</label>
+                  <div class="col-sm-10">
+                    <input type="tel" class="form-control" id="mphone" placeholder="Your Phone Number">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="mEmail" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="mEmail" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="mmessage" class="col-sm-2 control-label">Message</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" rows="3" id="mmessage" placeholder="Your Message"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+
+      </div>
+    </div>
   </div>
-  
+
 
 <br/>
 <br/>
 
 <div class="body-line"></div>
-<h3 align="center">Website Design By Anhony Alaribe ( anthonyalaribe@gmail.com ) </h3>
+<div align="center"><small align="center">Website Design By Anthony Alaribe ( anthonyalaribe@gmail.com ) </small></div>
