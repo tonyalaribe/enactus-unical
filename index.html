@@ -31,30 +31,108 @@
   <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
 
-  <link rel="stylesheet" href="styles/35173477.components.min.css"/>
+  <link rel="stylesheet" href="styles/39ccd8fe.components.min.css"/>
 
-  <link rel="stylesheet" href="styles/b61e1d5a.main.min.css"/>
+  <link rel="stylesheet" href="styles/f14337cd.main.min.css"/>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" />
+  
+  <style type="text/css">
+    .dbanner { position: relative; overflow: auto; display:block; height:100%;}
+	.dbanner li { list-style: none;  height:100%;}
+	.dbanner ul { margin: 0; padding: 0; }
+	.dbanner ul li { float: left; }
+    .first-section{display:block; height:100%;}
+  </style>
+  
 </head>
 
 <body ontouchstart ng-controller="MainCtrl">
-
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        
-        <div class="inner cover first-section">
-          <div class="inner" ui-view style="height:100%;"></div>
-          <div class="masthead clearfix" style="bottom:0; position:absolute;">
-            <div class="inner" >
+	<div class="first-section">
+          <!--<div class="inner" ui-view style="height:100%;"></div>-->
+          <div class="dbanner">
+            <ul>
+              <li id="slide1" class="slide-home vertical-align-parent">
+              	<div class="slide-home-description">
+					<h2 class="bold rem6 " style="color:#FEC222">Life is only as good<br/> as we make it</h2>
+					<p class="light">Enactus is an international organization that connects student, academic and business leaders through entrepreneurial-based projects that empower people to transform opportunities into real, sustainable progress for themselves and their communities.<br/>
+					<span>JOIN US: </span><a class="btn btn-lg btn-info" scroll-to="join"><i class="fa fa-book"></i> Student</a>
+					<a class="btn btn-lg btn-success" scroll-to="join"><i class="fa fa-suitcase"></i> Business Advisory Board</a>
+              	</div>
+              </li>
+              <li id="slide2" class="about-enactuscal">
+				  <div class="about-enactuscal-overlay">
+					<img src="http://enactuscal.iriscouch.com/enactuscal/521281b51cd66abee9bd4185cf000ba8/enactus_FULL_white.svg" />
+					
+					<div class="about-enactuscal-view">
+					  
+					<div class="about-enworld">	
+						<span class="col-xs-6 col-md-3">			 
+						<img src="styles/home-country-icon.png"/><br/>36
+						Countries 
+						</span>
+						<span class=" col-xs-6 col-md-3">	
+						<img src="styles/home-universities-icon.png"/><br/>1600
+						Universities 
+						</span>
+						<span class="col-xs-6 col-md-3">	
+						<img src="styles/home-students-icon.png" class="img-responsive"/><br/>66,500
+						Students
+						</span>
+						<span class="col-xs-6 col-md-3">	 
+						<img src="styles/home-impact-icon.png" class="img-responsive"/><br/>2,800,000 Lives Impacted
+						</span>
+					</div>
+					<div class="light" style="font-size:4rem; text-align:center;">
+						Enactus Might be impacting the life of an individual near you
+					</div>
+					</div>
+				  </div>
+				
               
-              <ul class="nav masthead-nav" bs-nav>
-                <li ng-class="{active: $path() == '/'}"><a ui-sref="slide1" id="Site-Brand"><i class="fa fa-2x fa-anchor hidden-xs"></i> <span class="">Enactus Unical</span></a></li>
-                <li ng-class="{active: $path() == '/unical'}"><a ui-sref="slide2"><i class="fa fa-2x fa-users"></i> <span class="hidden-xs">About Us</span></a></li>
-                <li ng-class="{active: $path() == '/join'}"><a ui-sref="slide3"><i class="fa fa-2x fa-plus"></i> <span class="hidden-xs">Join Us</span></a></li>
+              </li>
+              <li id="slide3" class="join-enactuscal">
+              <div class="join-enactuscal-overlay">
+              <img src="http://enactuscal.iriscouch.com/enactuscal/521281b51cd66abee9bd4185cf000ba8/enactus_FULL_white.svg" />
+              <div class="join-enactuscal-view">
+				  <h2>Want to step outside of your <strong >text books</strong> to actually excecute <strong>projects</strong> in the <strong>real world</strong>? While even <strong>learning</strong> more and improving your <strong>skills</strong>?</h2>
+				  <div>
+				   <br/>
+				<strong>It's Exciting.</strong> Enactus projects offer a variety of opportunities to explore while impacting lives.<br/>
+				<br/>
+
+				<strong>Leadership Skills.</strong> From leading a project, managing team resources, to simply sharing your ideas.<br/><br/>
+
+				<strong>It looks great on your CV.</strong> The lives you empower speak for themselves.<br/><br/>
+
+				<strong>Friends.</strong> prepare to make friends and contacts who will be there for you after university.
+				  </div>
+				  
+				  <a scroll-to="join" class="btn btn-lg btn-danger"><i class="fa fa-plus"></i>  Join our  team</a>
+				</div>
+              
+              </div>
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="unslider-arrow prev btn btn-lg btn-default  "><span class="sr-only">Previous slide</span><i class="fa fa-3x fa-angle-double-left"></i></a>
+          <a href="#" class="unslider-arrow next btn btn-lg btn-default"><span class="sr-only">Next slide</span><i class="fa fa-3x fa-angle-double-right"></i></a>
+          
+    </div>
+
+
+
+<div class="masthead clearfix" style="bottom:0; position:absolute;">
+            <div class="inner">
+              
+              <ul class="nav masthead-nav" bs-nav="">
+                <li ng-class="{active: $path() == '/'}" class=""><a ui-sref="slide1" id="Site-Brand" href="#/"><i class="fa fa-2x fa-anchor hidden-xs"></i> <span class="">Enactus Unical</span></a></li>
                 <li style="background-color:#35465c"><a href="http://enactusunical.tumblr.com" target="_blank"><i class="fa fa-2x fa-tumblr-square"></i> <span class="hidden-xs">Blog</span></a></li>
-                <li style="background-color:#517fa4;" ><a href="http://instagram.com/enactus_unical" target="_blank"><i class="fa fa-2x fa-instagram"></i> <span class="hidden-xs">Instagram</span></a></li>
+                <li style="background-color:#517fa4;"><a href="http://instagram.com/enactus_unical" target="_blank"><i class="fa fa-2x fa-instagram"></i> <span class="hidden-xs">Instagram</span></a></li>
                 <li style="background-color:#3b5998;"><a href="https://www.facebook.com/pages/Enactus-unical/308314359319260" target="_blank"><i class="fa fa-2x fa-facebook"></i> <span class="hidden-xs">Facebook</span></a></li>
+                &nbsp;&nbsp;&nbsp;&nbsp;<li class="">
+                Learn More:<a href="http://enactus.org" class=" " style="color:#FEC222">Enactus Worldwide</a>
+                </li>
+                <div style="clear:both"></div>
               </ul>
               
 
@@ -63,7 +141,15 @@
             </div>
             <div style="clear:both"></div>
           </div>
-        </div>
+
+
+
+
+
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
         <div style="clear:both"></div>
         <div class="inner second-section" >
           
@@ -77,6 +163,7 @@
                 <li ><a href="#team" scroll-to="team"><i class="fa fa-2x fa-users"></i> <span class="hidden-xs">Team</span></a></li>
                 <li ><a href="#sponsors" nscroll-to="sponsors"><i class="fa fa-2x fa-usd"></i> <span class="hidden-xs">Sponsors</span></a></li>
                 <li ><a href="#join" scroll-to="join"><i class="fa fa-2x fa-plus"></i> <span class="hidden-xs">Join Us</span></a></li>
+                <div style="clear:both"></div>
                 <!--<li ng-class="{active: $path() == '/contact'}"><a ui-sref="slide5">Lets Go</a></li>-->
                 <!--<li ng-class="{active: $path() == '/contact'}"><a ui-sref="slide6">Cashless Campus</a></li>-->
               </ul>
@@ -100,7 +187,7 @@
                   </div>
                   <div class="other clearfix" >
                     
-                    <div class="col-sm-4 col-md-3" ng-repeat="project in projects" ng-mouseenter="hover(project)" ng-mouseleave="hover(project)" >
+                    <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="project in projects" ng-mouseenter="hover(project)" ng-mouseleave="hover(project)" >
                       <div>
                         <img src="{{ base+project.img}}" class="img-responsive"/>
                         <a href="#" ng-click="single(project)">
@@ -148,7 +235,7 @@
                 <h2 align="center" class="bold">Gallery<small class="light">memories we share</small></h2>
                 <br/>
                 <div class="other clearfix">
-                  <div class="col-sm-3 col-md-2" ng-repeat="picture in tag.items" ng-mouseenter="hover(picture)" ng-mouseleave="hover(picture)">
+                  <div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="picture in tag.items" ng-mouseenter="hover(picture)" ng-mouseleave="hover(picture)">
                     <div>
                       <img src="{{picture.images.low_resolution.url}}" class="img-responsive"/>
                       <a ng-href="{{picture.link}}" target="_blank">
@@ -177,7 +264,7 @@
                 <h2 align="center" class="bold">Our Team<small class="light">we enable progress</small></h2>
                 <br/>
                 <div class="other clearfix "  ng-class="{'col-md-9': HideDiv}">
-                  <div class="col-sm-3 col-md-2 " ng-repeat="member in team" ng-mouseenter="hover(member)" ng-mouseleave="hover(member)" align="center">
+                  <div class="col-xs-4 col-sm-3 col-md-2 " ng-repeat="member in team" ng-mouseenter="hover(member)" ng-mouseleave="hover(member)" align="center">
                     <div class="round">
                       <img src="{{base+member.img}}" class="img-responsive"/>
                       <a href="#team-side"  ng-click="single(member)">
@@ -212,7 +299,7 @@
                 <br/>
                 <div class="other clearfix">
                 
-                  <div class="col-sm-3 col-lg-2"  ng-repeat="sponsor in sponsors">
+                  <div class="col-xs-4 col-sm-3 col-lg-2"  ng-repeat="sponsor in sponsors">
                     <a href="{{sponsor.link}}"><img src="{{base+sponsor.img}}" class="img-responsive img-rounded curved" style="height:150px;display:block; float:left; margin-right:7px;margin-bottom:7px;"/></a>
                   </div>
                   
@@ -261,7 +348,7 @@
                           </div>
                           <div class="form-group">
                             <div class="">
-                              <button type="submit" class="btn btn-lg btn-default"><i class="fa fa-bolt"></i> Submit</button>
+                              <button type="submit" class="btn btn-lg btn-primary {{btn}}"><i class="fa fa-bolt"></i> Submit</button> <span class="{{cssed}}">{{textual}}</span>
                             </div>
                           </div>
                           <pre>{{student}}</pre>
@@ -275,28 +362,33 @@
                       
                       <div>
                         <h2>Want to be there when we need help and advice from the older population? Please fill in the form below and we would contact you. If need be, we would organize a meeting with you. <small>Thank you</small></h2>
-                        <form class="" role="form">
+                        <form class="" role="form" ng-controller="babform" ng-submit="processForm()">
                           <div class="form-group">
                             <label for="mName" class=" control-label">Name</label>
-                              <input type="text" class="form-control" id="mName" placeholder="Your Name">
+                              <input type="text" class="form-control" id="mName" placeholder="Your Name" ng-model="bab.name">
+                              <span class="help-block" ng-show="errorname">{{ errorname }}</span>
                           </div>
                           <div class="form-group">
                             <label for="mphone" class="control-label">Phone</label>
-                              <input type="tel" class="form-control" id="mphone" placeholder="Your Phone Number">
+                              <input type="tel" class="form-control" id="mphone" placeholder="Your Phone Number" ng-model="bab.phone">
+                              <span class="help-block" ng-show="errorphone">{{ errorphone }}</span>
                           </div>
                           <div class="form-group">
                             <label for="mEmail" class="control-label">Email</label>
-                              <input type="email" class="form-control" id="mEmail" placeholder="Email">
+                              <input type="email" class="form-control" id="mEmail" placeholder="Email" ng-model="bab.email">
+                              <span class="help-block" ng-show="erroremail">{{ erroremail }}</span>
                           </div>
                           <div class="form-group">
                             <label for="mmessage" class="control-label">Message</label>
-                              <textarea class="form-control" rows="3" id="mmessage" placeholder="Your Message"></textarea>
+                              <textarea class="form-control" rows="3" id="mmessage" placeholder="Your Message" ng-model="bab.message"></textarea>
+                              <span class="help-block" ng-show="errormessage">{{ errormessage }}</span>
                           </div>
                           <div class="form-group">
                             <div class="">
-                              <button type="submit" class="btn btn-lg btn-default">Submit</button>
+                              <button type="submit" class="btn btn-lg btn-primary {{btn}}"><i class="fa fa-bolt"></i> Submit</button> <span class="{{cssed}}">{{textual}}</span>
                             </div>
                           </div>
+                          <pre>{{bab}}</pre>
                         </form>
                         
                       </div>
@@ -309,36 +401,41 @@
                       <div>
                         <h2>Like what we do? Want to partner with us on a project? Or just want to meet up with us?</h2>
                         <h2>Drop a Message</h2>
-                        <form class="form-horizontal" role="form">
+                        <form class="" role="form" ng-controller="messageform" ng-submit="processForm()">
                           <div class="form-group">
                             <label for="mName" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="mName" placeholder="Your Name">
+                              <input type="text" class="form-control" id="mName" placeholder="Your Name" ng-model="message.name">
+                              <span class="help-block" ng-show="errorname">{{ errorname }}</span>
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="mphone" class="col-sm-2 control-label">Phone</label>
                             <div class="col-sm-10">
-                              <input type="tel" class="form-control" id="mphone" placeholder="Your Phone Number">
+                              <input type="tel" class="form-control" id="mphone" placeholder="Your Phone Number" ng-model="message.phone">
+                              <span class="help-block" ng-show="errorphone">{{ errorphone }}</span>
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="mEmail" class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10">
-                              <input type="email" class="form-control" id="mEmail" placeholder="Email">
+                              <input type="email" class="form-control" id="mEmail" placeholder="Email" ng-model="message.email">
+                              <span class="help-block" ng-show="erroremail">{{ erroremail }}</span>
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="mmessage" class="col-sm-2 control-label">Message</label>
                             <div class="col-sm-10">
-                              <textarea class="form-control" rows="3" id="mmessage" placeholder="Your Message"></textarea>
+                              <textarea class="form-control" rows="3" id="mmessage" placeholder="Your Message" ng-model="message.message"></textarea>
+                              <span class="help-block" ng-show="erromessage">{{ errormessage }}</span>
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="submit" class="btn btn-lg btn-primary {{btn}}"><i class="fa fa-bolt"></i> Submit</button> <span class="{{cssed}}">{{textual}}</span>
                             </div>
                           </div>
+                          <pre>{{message}}</pre>
                         </form>
                         
                       </div>
@@ -357,7 +454,7 @@
           <br/>
           
           <div class="body-line"></div>
-          <div align="center"><small align="center">Website Design By Anthony Alaribe ( anthonyalaribe@gmail.com ) </small></div>
+          <div align="center"><small align="center"><i class="fa fa-pencil"></i> with <i class="fa fa-heart"></i> By Anthony Alaribe ( anthonyalaribe@gmail.com ) </small></div>
           
           
         </div>
@@ -367,13 +464,43 @@
     </div>
   </div>
 
-  <script src="scripts/f6ff8bdf.components.min.js"></script>
+  <script src="scripts/47070cd1.components.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+  <script src="scripts/485cb735.app.min.js"></script>
 
+	
+  <script type="text/javascript">
+    $(function() {
+      var unslider = $('.dbanner').unslider({
+        speed: 1000, //The speed to animate each slide (in milliseconds)
+        delay: 7000, //The delay between slide animations (in milliseconds)
+        complete: function() {}, //A function that gets called after every slide animation
+        keys: true, //Enable keyboard (left, right) arrow shortcuts
+        dots: false, //Display dot navigation
+        fluid: true //Support responsive design. May break non-responsive designs
+        });
+        
+        
+      $('.unslider-arrow').click(function() {
+        var fn = this.className.split(' ')[1];
+        // Either do unslider.data('unslider').next() or .prev() depending on the className
+        unslider.data('unslider')[fn]();
+      });
+      
+      
+    });
+  </script>
+  <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  <script src="scripts/40702715.app.min.js"></script>
+	  ga('create', 'UA-55486019-1', 'auto');
+	  ga('send', 'pageview');
 
-
-
+	</script>
 </body>
 
 </html>

@@ -31,7 +31,7 @@
         </div>
         <div class="other clearfix" >
           
-          <div class="col-sm-4 col-md-3" ng-repeat="project in projects" ng-mouseenter="hover(project)" ng-mouseleave="hover(project)" >
+          <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="project in projects" ng-mouseenter="hover(project)" ng-mouseleave="hover(project)" >
             <div>
               <img src="{{ base+project.img}}" class="img-responsive"/>
               <a href="#" ng-click="single(project)">
@@ -79,7 +79,7 @@
       <h2 align="center" class="bold">Gallery<small class="light">memories we share</small></h2>
       <br/>
       <div class="other clearfix">
-        <div class="col-sm-3 col-md-2" ng-repeat="picture in tag.items" ng-mouseenter="hover(picture)" ng-mouseleave="hover(picture)">
+        <div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="picture in tag.items" ng-mouseenter="hover(picture)" ng-mouseleave="hover(picture)">
           <div>
             <img src="{{picture.images.low_resolution.url}}" class="img-responsive"/>
             <a ng-href="{{picture.link}}" target="_blank">
@@ -124,7 +124,7 @@
         </div>
         
       </div>
-      <div class="team-side col-md-3" id="team-side" style="border-left:#111 solid 3px; padding-left:10px;padding-right:5px; text-align:center; display:block;"  ng-show="singleHide" >
+      <div class="team-side col-xs-6 col-sm-4 col-md-3" id="team-side" style="border-left:#111 solid 3px; padding-left:10px;padding-right:5px; text-align:center; display:block;"  ng-show="singleHide" >
         <div style="text-align:center; display:block;"><img src="{{base+singleDetail.img}}" class="img-responsive img-thumbnail" style="height:200px;margin:0;padding:0; width:100%" /></div>
         <div class="body-line"></div>
         <h4>{{singleDetail.name}}</h4>
@@ -143,7 +143,7 @@
       <br/>
       <div class="other clearfix">
       
-        <div class="col-sm-3 col-lg-2"  ng-repeat="sponsor in sponsors">
+        <div class="col-xs-4 col-sm-3 col-lg-2"  ng-repeat="sponsor in sponsors">
           <a href="{{sponsor.link}}"><img src="{{base+sponsor.img}}" class="img-responsive img-rounded curved" style="height:150px;display:block; float:left; margin-right:7px;margin-bottom:7px;"/></a>
         </div>
         
